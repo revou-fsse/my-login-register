@@ -4,7 +4,7 @@
 
 ## Links/URLs:
 
-- <https://revou-personal-website.netlify.app>
+- <https://revou-login-register.netlify.app/>
 
 ## Pages
 
