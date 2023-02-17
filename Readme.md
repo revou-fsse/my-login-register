@@ -14,19 +14,6 @@
 
 ## Prerequisites
 
-# Developer Survey CLI
-
-- Assignment Example for Week 7: Programming — JavaScript, Node.js, npm, TypeScript
-
-We will make Developer Survey using CLI and JavaScript
-
-## Prerequisites
-
-- Node.js
-- NPM
-- JavaScript
-- Terminal
-
 1. Form input email?
    Rules
 
