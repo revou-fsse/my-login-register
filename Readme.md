@@ -39,7 +39,7 @@
 
 7. Login page when the user login with the correct account redirects the user to the homepage page
 
-8. Home page show user email
+8. Home page show user email and make CRUD features
 
 ## Screenshots
 
