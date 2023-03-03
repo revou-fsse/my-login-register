@@ -18,11 +18,30 @@
   <body>
     <header>
       <h1 class="name-data">Data Mu belum muncul nih!!</h1>
-      <h1>Make your Todo List</h1>
-      <input type="text" id="myInput" placeholder="Apa yang kamu pikirkan ?" />
-      <span class="addBtn" id="add_button">Tambah</span>
+      <h1>Make your Data</h1>
     </header>
-    <ul id="myUL"></ul>
+    <form>
+      <input type="text" id="inputName" placeholder="Nama" />
+      <input type="text" id="inputAge" placeholder="Umur" />
+      <input type="text" id="inputEmail" placeholder="Email" />
+      <button class="tambah-data" type="button" onclick="addData()">
+        Tambah Data
+      </button>
+    </form>
+
+    <div class="container">
+      <table id="dataTable">
+        <thead>
+          <tr>
+            <th>Nama</th>
+            <th>Umur</th>
+            <th>Email</th>
+            <th>Aksi</th>
+          </tr>
+        </thead>
+        <tbody></tbody>
+      </table>
+    </div>
     <script src="homepage.js"></script>
   </body>
 </html>

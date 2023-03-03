@@ -41,10 +41,12 @@
 
 8. Home page show user email and make CRUD features
 
+9. You are free to make appearances, but it must be ensured that your website homepage has the CRUD (Create Read Update Delete) feature.
+
 ## Screenshots
 
 ![Image 1](https://user-images.githubusercontent.com/67870639/219513809-895243b4-e150-4a2f-8afa-dac3184151a1.png)
 
 ![Image 2](https://user-images.githubusercontent.com/67870639/219513945-58ad802a-8fca-4d4e-b5e4-d3229208aa4c.png)
 
-![Image 3](https://user-images.githubusercontent.com/67870639/219514093-02a7fc3b-f90c-44a8-b5da-85a5f5573d51.png)
+![Image 3](https://user-images.githubusercontent.com/67870639/222611643-1fc92e1c-42cb-4641-a762-835228a90399.png)

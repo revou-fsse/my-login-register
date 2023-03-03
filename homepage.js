@@ -5,89 +5,60 @@ if (getLocalStorage !== null) {
   collection[0].innerHTML = `Hello ${getLocalStorage}!`;
 }
 
-const todoList = [];
+// data dummy
+var data = [
+  { name: "John", age: 25, email: "john@example.com" },
+  { name: "Jane", age: 30, email: "jane@example.com" },
+  { name: "Bob", age: 35, email: "bob@example.com" },
+];
 
-const todoListElement = document.querySelector("#myUL");
-
-document.querySelector("#add_button").addEventListener("click", addTodo);
-document.querySelector("#myInput").addEventListener("keydown", function (e) {
-  if (e.keyCode == 13) {
-    addTodo();
-  }
-});
-
-//-------GETTING VALUES FROM INPUT TO ARRAY OF OBJECTS-------
-function addTodo() {
-  const todoText = document.querySelector("#myInput").value;
-
-  if (todoText == "") {
-    alert("You did not enter any item");
-  } else {
-    const todoObject = {
-      id: todoList.length,
-      todoText: todoText,
-      isDone: false,
-    };
-
-    //---WITH UNSHIFT WE ADD THE NEW ELEMENT TO THE BEGINNING OF THE ARRAY
-    //--SO THAT THE NEW ITEMS SHOW UP ON TOP
-    todoList.unshift(todoObject);
-    displayTodos();
+// menampilkan data ke dalam tabel
+function showData() {
+  var tableBody = document.querySelector("#dataTable tbody");
+  tableBody.innerHTML = "";
+  for (var i = 0; i < data.length; i++) {
+    var row = "<tr>";
+    row += "<td>" + data[i].name + "</td>";
+    row += "<td>" + data[i].age + "</td>";
+    row += "<td>" + data[i].email + "</td>";
+    row +=
+      "<td><button class='edit' type='button' onclick='editData(" +
+      i +
+      ")'>Edit</button>";
+    row +=
+      "<button class='delete' type='button' onclick='deleteData(" +
+      i +
+      ")'>Hapus</button></td>";
+    row += "</tr>";
+    tableBody.innerHTML += row;
   }
 }
 
-//------CHANGING THE isDone VALUE TO TRUE WHEN THE ELEMENT IS CLICKED
-//------OR TO FALSE IF IT WAS TRUE BEFORE
-function doneTodo(todoId) {
-  const selectedTodoIndex = todoList.findIndex((item) => item.id == todoId);
-
-  todoList[selectedTodoIndex].isDone
-    ? (todoList[selectedTodoIndex].isDone = false)
-    : (todoList[selectedTodoIndex].isDone = true);
-  displayTodos();
+// menambah data ke dalam objek data
+function addData() {
+  var name = document.querySelector("#inputName").value;
+  var age = document.querySelector("#inputAge").value;
+  var email = document.querySelector("#inputEmail").value;
+  data.push({ name: name, age: age, email: email });
+  showData();
 }
 
-//----TO DELETE AN ITEM; FROM THE LIST
-function deleteItem(x) {
-  todoList.splice(
-    todoList.findIndex((item) => item.id == x),
-    1
-  );
-  displayTodos();
+// mengedit data dalam objek data
+function editData(index) {
+  var name = prompt("Nama baru:", data[index].name);
+  var age = prompt("Umur baru:", data[index].age);
+  var email = prompt("Email baru:", data[index].email);
+  data[index] = { name: name, age: age, email: email };
+  showData();
 }
 
-//---------DISPLAYING THE ENTERED ITEMS ON THE SCREEN------
-function displayTodos() {
-  todoListElement.innerHTML = "";
-  document.querySelector("#myInput").value = "";
-
-  todoList.forEach((item) => {
-    const listElement = document.createElement("li");
-    const delBtn = document.createElement("i");
-
-    listElement.innerHTML = item.todoText;
-    listElement.setAttribute("data-id", item.id);
-
-    delBtn.setAttribute("data-id", item.id);
-    delBtn.classList.add("far");
-    delBtn.classList.add("fa-trash-alt");
-    delBtn.setAttribute("data-id", item.id);
-
-    if (item.isDone) {
-      listElement.classList.add("checked");
-    }
-
-    listElement.addEventListener("click", function (e) {
-      const selectedId = e.target.getAttribute("data-id");
-      doneTodo(selectedId);
-    });
-
-    delBtn.addEventListener("click", function (e) {
-      const delId = e.target.getAttribute("data-id");
-      deleteItem(delId);
-    });
-
-    todoListElement.appendChild(listElement);
-    listElement.appendChild(delBtn);
-  });
+// menghapus data dari objek data
+function deleteData(index) {
+  data.splice(index, 1);
+  showData();
 }
+
+// menampilkan data pada saat halaman web dimuat
+window.onload = function () {
+  showData();
+};
